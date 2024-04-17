@@ -41,7 +41,7 @@ def mensaje():
 @app.get('/developer/')
 def get_developer_stats(desarrollador: str):
 
-    df = pd.read_parquet('./Consulta_Data/df_games_clean.parquet')
+    df = pd.read_parquet('Consulta_Data/df_games_clean.parquet')
 
 
     df['release_date'] = pd.to_datetime(df['release_date'], errors='coerce')
@@ -74,9 +74,9 @@ def get_developer_stats(desarrollador: str):
 
 @app.get("/userdata/")
 def get_user_data(User_id: str):
-    df_games = pd.read_parquet('./Consulta_Data/df_games_clean.parquet')
-    df_items = pd.read_parquet('./Consulta_Data/df_items_clean.parquet')
-    df_reviews = pd.read_parquet('./Consulta_Data/df_reviews_clean.parquet')
+    df_games = pd.read_parquet('Consulta_Data/df_games_clean.parquet')
+    df_items = pd.read_parquet('Consulta_Data/df_items_clean.parquet')
+    df_reviews = pd.read_parquet('Consulta_Data/df_reviews_clean.parquet')
 
     games_copy = df_games.copy()
     items_copy = df_items.copy()
@@ -125,10 +125,10 @@ def get_user_data(User_id: str):
 #Esta consulta devuelve devolver el usuario que acumula más horas jugadas para el género dado y una lista de la acumulación de horas jugadas por año de lanzamiento.
 #http://127.0.0.1:8000/user-for-genre/?genero=Action
 
-#@app.get("/user-for-genre/")
-#def user_for_genre(genero: str):
-    df_games = pd.read_parquet('./Consulta_Data/df_games_clean.parquet')
-    df_items = pd.read_parquet('./Consulta_Data/df_items_clean.parquet')
+@app.get("/user-for-genre/")
+def user_for_genre(genero: str):
+    df_games = pd.read_parquet('Consulta_Data/df_games_clean.parquet')
+    df_items = pd.read_parquet('Consulta_Data/df_items_clean.parquet')
 
     df_games_copy = df_games.copy()
     df_items_copy = df_items.copy()
@@ -154,7 +154,7 @@ def get_user_data(User_id: str):
 
     return result 
 
-    """
+    
 #----------------------------------------------------------------------------------------------------------------------------
 #                                                    CONSULTA 05
 #----------------------------------------------------------------------------------------------------------------------------
@@ -165,8 +165,8 @@ def get_user_data(User_id: str):
 
 def developer_reviews_analysis(desarrollador: str):
 
-    games = pd.read_parquet('./Consulta_data/user_games_clean.parquet')
-    sentiment = pd.read_parquet('./Consulta_Data/Sentiment_Analysis_parquet')
+    games = pd.read_parquet('Consulta_data/user_games_clean.parquet')
+    sentiment = pd.read_parquet('Consulta_Data/Sentiment_Analysis_parquet')
     games_copy = games.copy()
     sentiment_copy = sentiment.copy()
 
@@ -200,7 +200,7 @@ def developer_reviews_analysis(desarrollador: str):
 # ------------------------------------------------------------------------------------
 #                                       CONSULTA 4 
 #-------------------------------------------------------------------------------------
-df_merged = pd.read_parquet('./Consulta_Data/df_merged.parquet')
+df_merged = pd.read_parquet('Consulta_Data/df_merged.parquet')
 
 @app.get('/best_developer_year/')
 
@@ -243,7 +243,7 @@ def best_developer_year(año:int):
 #                                           MODELO SISTEMA DE RECOMENDACION
 #--------------------------------------------------------------------------------------------------------------
 #774276 ---> usuario de prueba 
-
+"""
 df_genres = pd.read_parquet('./Consulta_Data/df_dummies.parquet')
 df_games = pd.read_parquet('./Consulta_Data/df_games_clean.parquet')
 
