@@ -153,6 +153,8 @@ def user_for_genre(genero: str):
     }
 
     return result 
+
+    """
 #----------------------------------------------------------------------------------------------------------------------------
 #                                                    CONSULTA 05
 #----------------------------------------------------------------------------------------------------------------------------
@@ -203,17 +205,17 @@ df_merged = pd.read_parquet('./Consulta_Data/df_merged.parquet')
 @app.get('/best_developer_year/')
 
 def best_developer_year(año:int):
-    """
-    Devuelve el top 3 de desarrolladores con juegos MÁS recomendados por usuarios para el año dado.
-    Se tienen en cuenta recommend = True + sentiment_analysis con mayor puntuación.
+   
+    #Devuelve el top 3 de desarrolladores con juegos MÁS recomendados por usuarios para el año dado.
+    #Se tienen en cuenta recommend = True + sentiment_analysis con mayor puntuación.
 
-    Args:
-        df (pd.DataFrame): DataFrame que contiene los datos.
-        año (int): Año para el que se desea obtener el top 3 de desarrolladores.
+    #Args:
+    #    df (pd.DataFrame): DataFrame que contiene los datos.
+    #    año (int): Año para el que se desea obtener el top 3 de desarrolladores.
 
-    Returns:
-        dict: Diccionario ordenado con los top 3 desarrolladores para el año dado, en formato {1er puesto: primer juego, 2do puesto: segundo juego, 3er puesto: tercer juego}.
-    """
+    #Returns:
+    #    dict: Diccionario ordenado con los top 3 desarrolladores para el año dado, en formato {1er puesto: primer juego, 2do puesto: segundo juego, 3er puesto: tercer juego}.
+   
     # Filtrar el DataFrame para el año dado
     df_año = df_merged[df_merged['year_posted'] == año]
 
@@ -291,5 +293,5 @@ def recomendar_juegos(game_id: str):
     return [mensaje_recomendacion] + nombres_juegos_similares 
 
 
-
+"""
 
