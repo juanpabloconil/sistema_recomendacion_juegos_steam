@@ -125,8 +125,8 @@ def get_user_data(User_id: str):
 #Esta consulta devuelve devolver el usuario que acumula más horas jugadas para el género dado y una lista de la acumulación de horas jugadas por año de lanzamiento.
 #http://127.0.0.1:8000/user-for-genre/?genero=Action
 
-@app.get("/user-for-genre/")
-def user_for_genre(genero: str):
+#@app.get("/user-for-genre/")
+#def user_for_genre(genero: str):
     df_games = pd.read_parquet('./Consulta_Data/df_games_clean.parquet')
     df_items = pd.read_parquet('./Consulta_Data/df_items_clean.parquet')
 
